@@ -3,7 +3,8 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
-
+#include "cocostudio/CocoStudio.h"
+#include "CocosGUI.h"
 
 class Fishes : public cocos2d::CCLayer
 {
@@ -38,7 +39,7 @@ public:
 	virtual void onEnter();
 private:
 	void callback();
-	cocos2d::extension::CCArmature* armature;
+	cocostudio::Armature* armature;
 };
 
 class Fish05 : public Fishes
@@ -60,6 +61,6 @@ public:
 private:
 	void callback();
 	void removeSelf();
-	cocos2d::extension::CCArmature* armature;
+	cocostudio::Armature* armature;
 };
 #endif

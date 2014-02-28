@@ -93,3 +93,6 @@ tools/tojs/userconf.ini
 # ... userconf.ini generated if running from tools/jenkins_scripts/mac/android/
 tools/jenkins_scripts/mac/android/userconf.ini
 
+# Ignore   3.0 include files in per project created by create_project.py
+cocos2d/*
+
