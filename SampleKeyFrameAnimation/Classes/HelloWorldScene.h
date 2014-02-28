@@ -3,24 +3,32 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "cocostudio/CocoStudio.h"
+#include "CocosGUI.h"
 
-class HelloWorld : public cocos2d::CCLayer
+USING_NS_CC;
+
+class HelloWorld : public cocos2d::Layer
 {
 public:
+    // there's no 'id' in cpp, so we recommend returning the class instance pointer
+    static cocos2d::Scene* createScene();
+
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();  
-	virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
-	virtual void registerWithTouchDispatcher();
-    // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::CCScene* scene();
     
-    // a selector callback
-    void menuCloseCallback(CCObject* pSender);
-    
-    // implement the "static node()" method manually
-    CREATE_FUNC(HelloWorld);
+	// a selector callback about a  touch event began
+	bool onTouchBegan(Touch* touch, Event* event);
+
+	static cocos2d::CCScene* scene();
+
+	// a selector callback
+	void menuCloseCallback(Object* pSender);
+
+	// implement the "static node()" method manually
+	CREATE_FUNC(HelloWorld);
 private:
-	cocos2d::extension::CCArmature* armature;
+	cocostudio::Armature* armature;
 	int count;
 };
 
