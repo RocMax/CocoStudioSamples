@@ -3,31 +3,31 @@
 
 #include "cocos2d.h"
 #include "Player.h"
+#include "CocosGUI.h"
+using namespace cocos2d;
+using namespace cocos2d::ui;
 
-using namespace gui;
-
-class HelloWorld : public cocos2d::CCLayer
+class HelloWorld : public cocos2d::Layer
 {
 private:
-    Player* player;
-    
+
+	Player* player;
 public:
-    // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
-    virtual bool init();  
-    
-    // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::CCScene* scene();
-    
-    // a selector callback
-    void menuCloseCallback(CCObject* pSender);
-    void onMoveLeft(CCObject* pSender, TouchEventType type);
-    void onMoveRight(CCObject* pSender, TouchEventType type);
-    void onFire(CCObject* pSender, TouchEventType type);
-    
-    // implement the "static node()" method manually
-    CREATE_FUNC(HelloWorld);
-    
-    virtual void update(float dt);
+	virtual bool init();  
+
+	// there's no 'id' in cpp, so we recommend returning the class instance pointer
+	static cocos2d::CCScene* createScene();
+
+	// a selector callback
+	void menuCloseCallback(Ref* pSender);
+	void onMoveLeft(CCObject* pSender, TouchEventType type);
+	void onMoveRight(CCObject* pSender, TouchEventType type);
+	void onFire(CCObject* pSender, TouchEventType type);
+
+	// implement the "static node()" method manually
+	CREATE_FUNC(HelloWorld);
+
+	virtual void update(float dt);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

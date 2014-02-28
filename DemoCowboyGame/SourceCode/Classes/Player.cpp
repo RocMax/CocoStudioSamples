@@ -13,8 +13,8 @@ Player::Player(CCNode* playerNode)
 :CCObject()
 {
     this->playerNode = playerNode;
-    CCComRender* comRender = static_cast<CCComRender*>(playerNode->getComponent("CCArmature"));
-	CCArmature *animationNode = static_cast<CCArmature*>(comRender->getNode());
+    ComRender* comRender = static_cast<ComRender*>(playerNode->getComponent("CCArmature"));
+	Armature *animationNode = static_cast<Armature*>(comRender->getNode());
     this->animation = animationNode->getAnimation();
     this->animation->setMovementEventCallFunc(this, movementEvent_selector(Player::onAnimationEvent));
     currentState = IDLE;
@@ -77,7 +77,7 @@ bool Player::isLockState()
     return lockState;
 }
 
-void Player::onAnimationEvent(cocos2d::extension::CCArmature *pArmature, cocos2d::extension::MovementEventType eventType, const char *animationID)
+void Player::onAnimationEvent(Armature *pArmature, MovementEventType eventType, const char *animationID)
 {
     if (eventType == LOOP_COMPLETE)
     {

@@ -1,0 +1,1 @@
+place a cocos2d/* in cocos2d here created by cocos2d-x\tools\project-creator\create_project.py

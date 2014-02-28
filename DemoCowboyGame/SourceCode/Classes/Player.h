@@ -11,9 +11,12 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "cocos2d.h"
+#include "cocostudio/CocoStudio.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
+using namespace cocostudio;
 using namespace std;
 
 #define WALK_SPEED 10
@@ -30,13 +33,13 @@ enum PlayerState {
 class Player : public CCObject
 {
     CCNode* playerNode;
-    CCArmatureAnimation* animation;
+    ArmatureAnimation* animation;
     PlayerState currentState;
     PlayerState newState;
     int direction;
     bool lockState;
     
-    void onAnimationEvent(CCArmature *pArmature, MovementEventType eventType, const char *animationID);
+    void onAnimationEvent(Armature *pArmature, MovementEventType eventType, const char *animationID);
     
 public:
     Player(CCNode* node);
